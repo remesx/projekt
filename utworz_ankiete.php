@@ -42,19 +42,10 @@
 			</nav>
         </header>
 
-        <?php
-            function password_generate($chars) 
-            {
-              $data = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz!@#$%&*?';
-              return substr(str_shuffle($data), 0, $chars);
-            }
-              echo password_generate(10)."\n";
-        ?>
+        
         
         <form method="POST" id="survey-form" action="wybor_uzytkownikow.php" >
-            <label for="name" id="name-label" >Nazwa ankiety:</label><br>
-            <input type="text" id="name" name="name" required placeholder="Podaj nazwe ankiety" class="text-inputs"><br>
-            <?php   
+        <?php   
     
     $section = "SELECT email FROM uzytkownicy";
     $result = $conn->query($section);
@@ -70,6 +61,9 @@
    }
 
 ?>
+            <label for="name" id="name-label" >Nazwa ankiety:</label><br>
+            <input type="text" id="name" name="name" required placeholder="Podaj nazwe ankiety" class="text-inputs"><br>
+            
 
             <label for="pytanie1" id="pytanie1-label">Pytanie 1</label><br>
             <input type="text" id="pytanie1" name="pytanie1" required placeholder="Wprowadź pytanie" class="text-inputs"><br>

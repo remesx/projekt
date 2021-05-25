@@ -14,15 +14,15 @@
     $kto2 = $_SESSION['user_email'];
    
     
-    echo sizeof($_POST);
+        echo sizeof($_POST);
         echo $kto2;  
 
         $values = array();
         foreach($_POST as $field => $value) {
-        $values[] = $value;
+            $values[] = $value;
         }
-        $sql="INSERT INTO utworzone_ankiety VALUES (NULL, '$kto2', '$values[0]')";
-        $sql_numer = "SELECT nr_ankiety FROM utworzone_ankiety WHERE nazwa_ankiety = '$values[0]'";
+        $sql="INSERT INTO utworzone_ankiety VALUES (NULL, '$kto2', '$values[1]')";
+        $sql_numer = "SELECT nr_ankiety FROM utworzone_ankiety WHERE nazwa_ankiety = '$values[1]'";
       
         $name = $_POST['uzytkownicy'];
 
