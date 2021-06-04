@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background-color: #7EB0F2;
+    z-index: 1;
+}
+
+body::after {
+    content: "";
+    background: url(../img/coding-on-laptop.jpg);
+    opacity: 0.5;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: -1;
+}
+
+.active{
+    background-color: #2A69BD;
+}
+
+nav > ul {
+    list-style-type: none;
+    display: flex;
+    background-color: #193F70;
+    
+}
+
+nav > ul > li {
+    display: block;
+    background-color: #193F70;
+    color:antiquewhite;
+    
+}
+
+nav > ul > li:last-of-type{
+    margin-left: auto; 
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    display: block;
+    padding: 20px;
+    color:antiquewhite;
+}
+
+nav > ul > li > a:hover {
+    background-color:#7EB0F2;
+    
+}
+
+main{
+    width:80%;
+    max-width: 1000px;
+    margin:auto;
+    min-height: calc(100vh - 202px);
+    width: 100%;
+    background-color: rgba(58,	82, 112, 0.8);
+    
+    margin-top:50px;
+    border-radius: 5px;
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+.form-utworz{ 
+    width: 100%;
+    display:flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    margin:auto;
+    
+}
+
+.form-utworz > div{
+    width: 40%;
+    min-width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+
+.form-pytania > input{
+    padding: 5px 0 5px 5px;
+    border-radius: 5px;
+    border: 1px solid #193F70;
+    margin-bottom: 10px;
+    margin-top:2px;
+    width: 90%; 
+}
+
+.buttons{
+    padding:5px;
+    border: 1px solid #193F70;
+    border-radius: 5px;
+    margin-top:0;
+    margin-bottom: 0;
+    background-color: #193F70;
+    color:azure;
+    font-size: 18px;
+}
+.buttons:hover{
+    background-color: #2A69BD;
+}
+
+h3, .form-pytania > label{
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(233, 233, 233);
+}
+.form-uzytkownicy > label{
+    color:rgb(233, 233, 233);
+}
+
+h3{
+    margin-bottom: 2px;
+    margin:auto;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 5px;       
+}
+
+.view_button{
+    padding:5px;
+    border: 1px solid #193F70;
+    border-radius: 5px;
+    margin-top:0;
+    margin-bottom: 0;
+    background-color: #193F70;
+    color:azure;
+    font-size: 18px;
+}
+
+.view_button:hover{
+    background-color: #2A69BD;
+}
+
+.container{
+    padding: 20px;
+}
+
+.container > h2 {
+    color:rgb(233, 233, 233);
+    text-align: center;
+    margin-top: 30px;
+}
+.tabela{
+    margin: auto;
+    margin-top:20px;
+    color:rgb(233, 233, 233);
+    padding-bottom: 20px;
+}
+
+.container_obie{
+    display:flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.container_do, .container_wy{
+    flex: 1 1 20em;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    margin-top: -1px;
+    margin-left: -1px;
+    
+}
+
+.container_do > h3, .container_wy > h3{
+    text-align: center;
+    margin-top: 30px;
+}
+
+button{
+    margin-left:20px;
+}
+
+.container > h2:last-of-type{
+    padding-top:20px;
+    border-top: 1px solid white;
+    padding-bottom: 20px;
+}
+
+.container > form > label{
+    color:rgb(233, 233, 233);
+    font-size: 20px;
+    
+}
+
+.container > form > input{
+    width: 98%;
+    margin-bottom:20px;
+    margin-top:2px;
+    padding:2px;
+}
+
+.container > div > h2{
+    color:rgb(233, 233, 233);
+    text-align: center;
+    margin-top: 30px;
+}
+
+.container > div > h3{
+    color:rgb(233, 233, 233);
+    text-align: center;
+    margin-top: 30px;
+    font-size: 40px;
+}
+
+.container > .div-token > form > input{
+    display: block;
+    margin: auto;
+}
+
+.container > .div-token > form > input:first-of-type{
+    width:250px;
+    height: 40px;
+    font-size: 30px;
+    text-align: center;
+    margin-top:20px;
+}
+
+.container > .div-token > form {
+    width: 100%;
+}
+
+.container > #tb_odpowiedzi{
+    color:rgb(233, 233, 233);
+    margin: auto;
+    font-size: 20px;
+}
+
+#h2_czyste {
+    border: 0;
+}
+
+.container_login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login{
+    
+    width: 95%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid #193F70;
+    background-color: rgba(58,	82, 112, 0.8);
+}
+
+.login > h1{
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+}
+
+.login > form{
+    width: 90%;
+    margin: auto;
+    margin-top:20px;   
+}
+
+.login > form > label{
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(233, 233, 233);  
+}
+
+.login > form > input{
+    padding: 5px 0 5px 5px;
+    border-radius: 5px;
+    border: 1px solid #193F70;
+    margin-bottom: 10px;
+    margin-top:2px;
+    width: 98%;
+}
+
+.login > form > input[type=submit]{
+    width: 100%;
+    background-color: #6CE075;
+    font-size: 20px;
+}
+
+.login > form> a{
+    display: block;
+    padding: 5px 0 5px 5px;
+    border-radius: 5px;
+    border: 1px solid #193F70;
+    margin-bottom: 10px;
+    margin-top:2px;
+    width: 98%;
+    text-align: center;
+    background-color:  #F03730;
+    text-decoration: none;
+    color:black;
+    font-size: 20px;
+}
+
+.login > form> a:hover{
+    background-color: #FF5B53;
+}
+
+.login > form > input[type=submit]:hover{
+    
+    background-color: #B1E1BE;
+}
+
+
+.register{
+    height: auto;
+}
+
+.td_numer, .td_pytanie{
+    font-size: 25px;
+    font-weight: bold;
+    color:white;
+    padding-top:20px;  
+}
+
+.td_pytanie{
+    padding-left: 10px;
+}
+
+.td_numer{
+    min-width: 120px;
+}
+
+.td_odpowiedz{
+    color:whitesmoke;
+    font-size:20px;
+    padding-left:40px;
+}
+
+#nazwa{
+    font-size: 45px;
+    color:white;    
+}
+
+.border{
+    border-top:1px solid white;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
