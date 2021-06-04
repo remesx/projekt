@@ -24,20 +24,27 @@
 <head>
     <meta charset="utf-8"/>
     <title>Proejkt</title> 
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
-
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
-    <form action="login.php" method="post">
-        Login: </br> <input type="text" name="login"/> <br/>
-        Hasło: </br> <input type="password" name="haslo"/> <br/><br/>
-        <input type="submit" value="Zaloguj się"/>
-    </form>
-    <a href="register.php"><button>Zarejestruj się</button></a>
-    <?php
-    if(isset($_SESSION['blad']))
-        echo $_SESSION['blad'];
-    ?>
-
+    <div class="container_login">
+        <div class="login">
+        <h1>Zaloguj się</h1>
+        
+            <form action="login.php" method="post">
+                <label for="login"> Login:</label> </br> <input type="text" name="login"/> <br/>
+                <label for="haslo"> Hasło:</label> </br> <input type="password" name="haslo"/> <br/><br/>
+                <?php
+            if(isset($_SESSION['blad']))
+                echo $_SESSION['blad'];
+            ?>
+                <input type="submit" value="Zaloguj się"/>
+                <a href="register.php">Zarejestruj się</a>
+                
+            </form>
+            
+            
+        <div>
+    <div>
 </body>
 </html> 

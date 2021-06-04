@@ -33,26 +33,33 @@ session_start();
 <!DOCTYPE html>
 <html lang="pl">
     <head>
-        <title>Stronka</title>
+        <title>Podaj token</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <header>
             <nav>
-				<a class="menu active" href="strona.php">Strona główna</a>
-				<a class="menu" href="utworz_ankiete.php">Utwórz ankiete</a>
-				<a class="menu" href="moje_ankiety.php">Moje ankiety</a>
-				<a class="menu" href="logout.php">Wyloguj</a>
+                <ul>
+				    <li><a class="menu" href="strona.php">Strona główna</a></li>
+                    <li><a class="menu" href="utworz_ankiete.php">Utwórz ankiete</a></li>
+                    <li><a class="menu" href="moje_ankiety.php">Moje ankiety</a></li>
+                    <li><a class="menu" href="logout.php">Wyloguj</a></li>
+                </ul>
 			</nav>
         </header>
         <main>
-            <h2>Podaj token aby sprawdzic swoje odpowiedzi</h2>
-            <form action="pokaz_odpowiedzi.php" id="odpowiedzi-form" method="POST">
-            <input type="text" id="token" name="token">
-            <input type="submit" value="Wyslij">
-            </form>
+            <div class="container">
+                <div class="div-token">
+                    <h2>Podaj token aby sprawdzic swoje odpowiedzi</h2>
+                    <form action="pokaz_odpowiedzi.php" id="odpowiedzi-form" method="POST">
+                    <input type="text" id="token" name="token">
+                    </br>
+                    <input type="submit" value="Wyslij" class="view_button">
+                <div>
+                </form>
+            </div>
         </main>
         
     </body>

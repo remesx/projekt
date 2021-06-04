@@ -18,14 +18,31 @@ session_start();
 if(isset ($_GET["nr"]))
 {
     $nr = (int)$_GET["nr"];
-    $sql2 = "SELECT nr_pytania, pytanie FROM pytania WHERE nr_ankiety = '$nr'";
-    $result = $conn->query($sql2);
-    while($row = $result->fetch_assoc())
+    $sql3 = "SELECT EXISTS(SELECT * FROM czy_odpowiedz WHERE mail_uzytkownika = '$user_mail' AND nr_ankiety = '$nr' AND czy_odpowiedz = 0)"; 
+    $result2 = $conn->query($sql3);
+    $row = mysqli_fetch_row($result2);
+
+    
+ 
+    $prawda = $row[0];
+
+    if($prawda == '1')
     {
-          $pytania[] = $row;
+        $sql2 = "SELECT nr_pytania, pytanie FROM pytania WHERE nr_ankiety = '$nr'";
+        $result = $conn->query($sql2);
+        while($row = $result->fetch_assoc())
+        {
+            $pytania[] = $row;
+        }
+        $_SESSION['pytania']=$pytania;
+        $_SESSION['nr_a']=$nr;
+        
     }
-    $_SESSION['pytania']=$pytania;
-    $_SESSION['nr_a']=$nr;
+    else{
+        header('Location: index.php');
+    }
+    
+        
     
     
  
@@ -40,26 +57,30 @@ else{
 <!DOCTYPE html>
 <html lang="de">
     <head>
-        <title>Stronka</title>
+        <title>Uzupełnij ankiete</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <header>
             <nav>
-				<a class="menu" href="strona.php">Strona główna</a>
-				<a class="menu active" href="utworz_ankiete.php">Utwórz ankiete</a>
-				<a class="menu" href="moje_ankiety.php">Moje ankiety</a>
-				<a class="menu" href="logout.php">Wyloguj</a>
+                <ul>
+				    <li><a class="menu" href="strona.php">Strona główna</a></li>
+                    <li><a class="menu" href="utworz_ankiete.php">Utwórz ankiete</a></li>
+                    <li><a class="menu" href="moje_ankiety.php">Moje ankiety</a></li>
+                    <li><a class="menu" href="logout.php">Wyloguj</a></li>
+                </ul>
 			</nav>
         </header>
 
-
-        
-        <form method="POST" id="uzupelnij-form" action="zapisz_odpowiedzi.php" >
-        </form>    
-        <input type="submit" form="uzupelnij-form" value="Zatwierdź"/>
+        <main>
+            <div class="container">
+                <form method="POST" id="uzupelnij-form" action="zapisz_odpowiedzi.php" >
+                </form>    
+                <input type="submit" form="uzupelnij-form" value="Zatwierdź" class="view_button"/>
+            </div>
+        </main>
     </body>
     <script>
           var form = document.getElementById('uzupelnij-form');

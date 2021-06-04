@@ -51,8 +51,8 @@ if(isset ($_GET["nr"]))
     {   
         $odpowiedzi[] = $row;
     }
-    if(empty($odpowiezi))
-    {
+    if(empty($odpowiedzi))
+    {   
         $odpowiedzi = 0; 
     }
     $_SESSION['odpowiedzi']=$odpowiedzi;
@@ -81,35 +81,44 @@ else{
 <!DOCTYPE html>
 <html lang="pl">
     <head>
-        <title>Stronka</title>
+        <title>Informacje o ankiecie</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <header>
-            <nav>
-				<a class="menu active" href="strona.php">Strona główna</a>
-				<a class="menu" href="utworz_ankiete.php">Utwórz ankiete</a>
-				<a class="menu" href="moje_ankiety.php">Moje ankiety</a>
-				<a class="menu" href="logout.php">Wyloguj</a>
+        <nav>
+                <ul>
+				    <li><a class="menu" href="strona.php">Strona główna</a></li>
+                    <li><a class="menu" href="utworz_ankiete.php">Utwórz ankiete</a></li>
+                    <li><a class="menu active" href="moje_ankiety.php">Moje ankiety</a></li>
+                    <li><a class="menu" href="logout.php">Wyloguj</a></li>
+                </ul>
 			</nav>
         </header>
-        <div class = "pytania">
-        <h2 id="nazwa">
-        </h2>
-        <table id="tb_pytania">
-		</table>
-        </div>
-        <div class = "uzytkownicy">
-        <h2>Użytkownicy którzy wypełnili ankiete</h2>
-        <table id="tb_uzytkownicy_wypelnione">
-		</table>
-        <h2>Użytkownicy którzy nie wypełnili ankiety</h2>
-        <table id="tb_uzytkownicy_niewypelnione">
-		</table>
-        </div>
-        
+        <main>
+            <div class="container">
+                <div class = "pytania">
+                    <h2 id="nazwa">
+                    </h2>
+                    <table id="tb_pytania">
+                    </table>
+                </div>
+                <div class = "container_obie border">
+                    <div class ="container_wy">
+                        <h3>Użytkownicy którzy wypełnili ankiete</h3>
+                        <table id="tb_uzytkownicy_wypelnione" class="tabela">
+                        </table>
+                    <div>
+                    <div class ="container_do">
+                        <h3>Użytkownicy którzy nie wypełnili ankiety</h3>
+                        <table id="tb_uzytkownicy_niewypelnione" class="tabela">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
     </body>
     <script>
         var nazwa = "<?php echo $_SESSION['nazwa']; ?>";
@@ -120,13 +129,13 @@ else{
         table.innerHTML = "";
 
         var nazwa_ankiety = document.getElementById('nazwa');
-        nazwa_ankiety.innerHTML = nazwa;
+        nazwa_ankiety.innerHTML = "Ankieta: " + nazwa;
 
         for(var i = 0; i<pytania.length;i++)
             {
                 var tr = document.createElement("tr");
                 var td_numer = document.createElement("td");
-                var node = document.createTextNode(pytania[i]['nr_pytania']);
+                var node = document.createTextNode("Pytanie " + pytania[i]['nr_pytania']+":");
                 td_numer.setAttribute("class", "td_numer");
                 td_numer.appendChild(node);
                 tr.appendChild(td_numer);
@@ -142,11 +151,14 @@ else{
                 {
                     for(var j = 0; j<odpowiedzi.length; j++)
                     {
+                        
+                        
                         if(i+1 == odpowiedzi[j]['nr_pytania'])
                         {
+                            console.log(odpowiedzi[j]['nr_pytania'])
                             var tr = document.createElement("tr");
                             var td_odpowiedz = document.createElement("td");
-                            var node = document.createTextNode(odpowiedzi[j]['odpowiedz']);
+                            var node = document.createTextNode("Odp: " + odpowiedzi[j]['odpowiedz']);
                             td_odpowiedz.setAttribute("class", "td_odpowiedz");
                             td_odpowiedz.setAttribute("colspan", "2");
                             td_odpowiedz.appendChild(node);

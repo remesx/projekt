@@ -67,8 +67,8 @@
         foreach ($name as $uzytkownicy){ 
             $sql3="INSERT INTO czy_odpowiedz VALUES (NULL, '$nr_ankiety', '$uzytkownicy', '0')";
            if ($conn->query($sql3) === TRUE ) {
-        //    echo "Dodano obiekt";
-           // header('Location: strona.php');
+            
+           header('Location: moje_ankiety.php');
         }
         }
 

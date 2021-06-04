@@ -12,9 +12,13 @@ session_start();
         die("Connection failed: " . $conn->connect_error);}
     $user_id = (int)$_SESSION['user_id'];
     $user_mail = $_SESSION['user_email'];
+    if(!isset($_SESSION['nr_a'])){
+        header('Location: index.php');
+		exit();
+    }
     $nr_a = $_SESSION['nr_a'];
     unset($_SESSION['nr_a']);
-
+    unset($_SESSION['pytania']);
 
     function password_generate($chars) 
     {
@@ -74,27 +78,33 @@ session_start();
 <!DOCTYPE html>
 <html lang="pl">
     <head>
-        <title>Stronka</title>
+        <title>Zapisz token</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <header>
             <nav>
-				<a class="menu active" href="strona.php">Strona główna</a>
-				<a class="menu" href="utworz_ankiete.php">Utwórz ankiete</a>
-				<a class="menu" href="moje_ankiety.php">Moje ankiety</a>
-				<a class="menu" href="logout.php">Wyloguj</a>
+                <ul>
+				    <li><a class="menu" href="strona.php">Strona główna</a></li>
+                    <li><a class="menu" href="utworz_ankiete.php">Utwórz ankiete</a></li>
+                    <li><a class="menu" href="moje_ankiety.php">Moje ankiety</a></li>
+                    <li><a class="menu" href="logout.php">Wyloguj</a></li>
+                </ul>
 			</nav>
         </header>
         <main>
-        <h2>Zapisz poniższy token aby zweryfikowac odpowiedzi</h2>
-        <h3>
-        <?php
-            echo $token;
-        ?>
-        </h3>
+            <div class="container">
+                <div>
+                    <h2>Zapisz poniższy token aby zweryfikowac odpowiedzi:</h2>
+                    <h3>
+                    <?php
+                        echo $token;
+                    ?>
+                <div>
+                </h3>
+            </div>
         </main>
     </body>
 </html>

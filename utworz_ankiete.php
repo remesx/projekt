@@ -11,6 +11,7 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);}
 	$kto = (int)$_SESSION['user_id'];
+    $kto_mail = $_SESSION['user_email'];
 	/*$sql2 = "SELECT * FROM wartosci WHERE id_uzytkownika = '$kto'";
      
     $result2 = $conn->query($sql2);
@@ -27,51 +28,59 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
-        <title>Stronka</title>
+        <title>Nowa ankieta</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <header>
             <nav>
-				<a class="menu" href="strona.php">Strona główna</a>
-				<a class="menu active" href="utworz_ankiete.php">Utwórz ankiete</a>
-				<a class="menu" href="moje_ankiety.php">Moje ankiety</a>
-				<a class="menu" href="logout.php">Wyloguj</a>
+                <ul>
+				    <li><a class="menu" href="strona.php">Strona główna</a></li>
+                    <li><a class="menu active" href="utworz_ankiete.php">Utwórz ankiete</a></li>
+                    <li><a class="menu" href="moje_ankiety.php">Moje ankiety</a></li>
+                    <li><a class="menu" href="logout.php">Wyloguj</a></li>
+                </ul>
 			</nav>
         </header>
 
         
-        
-        <form method="POST" id="survey-form" action="wybor_uzytkownikow.php" >
+        <main>
+        <div class="buttons-container">
+            <button id="button" onclick="dodajPytanie()" class="buttons">Dodaj pytanie</button>
+            <input type="submit" form="survey-form" value="Dodaj ankiete" class="buttons"/>
+        </div>
+        <form method="POST" id="survey-form" action="wybor_uzytkownikow.php" class="form-utworz">
+            <div class="form-uzytkownicy">
+                <h3>Wybierz użytkowników którym chcesz udostępnić ankietę:</h3>
         <?php   
     
-    $section = "SELECT email FROM uzytkownicy";
-    $result = $conn->query($section);
+            $section = "SELECT email FROM uzytkownicy";
+            $result = $conn->query($section);
 
-    while ($row = mysqli_fetch_assoc($result))
-   {
-    echo "<tr><td>";
-    echo "<input type='checkbox' name='uzytkownicy[]' value='".$row['email']."'";
-    echo " />";
-    echo $row['email'];
+            while ($row = mysqli_fetch_assoc($result))
+            {
+                if($row['email'] != $kto_mail){
+                echo "<input type='checkbox' name='uzytkownicy[]' value='".$row['email']."'";
+                echo " />";
+                echo "<label>".$row['email']."</label>";
+                echo "<br/>";
+                }
+            }
 
-    echo "</td></tr><br/>";
-   }
-
-?>
+        ?>
+            </div>
+            <div class="form-pytania" id="form-pytania">
             <label for="name" id="name-label" >Nazwa ankiety:</label><br>
             <input type="text" id="name" name="name" required placeholder="Podaj nazwe ankiety" class="text-inputs"><br>
             
 
             <label for="pytanie1" id="pytanie1-label">Pytanie 1</label><br>
             <input type="text" id="pytanie1" name="pytanie1" required placeholder="Wprowadź pytanie" class="text-inputs"><br>
-            
+            </div>
         </form>
-        <button id="button" onclick="dodajPytanie()">Dodaj pytanie</button>
-        <input type="submit" form="survey-form" value="Dodaj ankiete"/>
-        
+        </main>
      
         
 
@@ -80,7 +89,7 @@
     <script type='text/javascript'>
     var nr_pytania = 2;
     function dodajPytanie(){
-        var formularz = document.getElementById("survey-form");
+        var formularz = document.getElementById("form-pytania");
         var label = document.createElement("label");
         label.for = "pytanie" + nr_pytania;
         label.id = "pytanie" + nr_pytania + "-label";

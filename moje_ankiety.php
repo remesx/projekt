@@ -49,36 +49,43 @@
 <!DOCTYPE html>
 <html lang="pl">
     <head>
-        <title>Stronka</title>
+        <title>Moje ankiety</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <header>
             <nav>
-				<a class="menu " href="strona.php">Strona główna</a>
-				<a class="menu" href="utworz_ankiete.php">Utwórz ankiete</a>
-				<a class="menu active" href="moje_ankiety.php">Moje ankiety</a>
-				<a class="menu" href="logout.php">Wyloguj</a>
+                <ul>
+				    <li><a class="menu" href="strona.php">Strona główna</a></li>
+                    <li><a class="menu" href="utworz_ankiete.php">Utwórz ankiete</a></li>
+                    <li><a class="menu active" href="moje_ankiety.php">Moje ankiety</a></li>
+                    <li><a class="menu" href="logout.php">Wyloguj</a></li>
+                </ul>
 			</nav>
         </header>
         <main>
-            <h2>Moje ankiety</h2>
-            <table id="tb_moje_ankiety">
-			</table>
-            <h2>Udostepnione ankiety</h2>
-            <h3>Wypełnione</h3>
-            <table id="tb_wypelnione_ankiety">
-			</table>
-            <h3>Do wypełnienia</h3>
-            <table id="tb_do_wypelnienia_ankiety">
-			</table>
-            
+            <div class="container">
+                <h2>Moje ankiety</h2>
+                <table id="tb_moje_ankiety" class="tabela">
+                </table>
+                <h2>Udostępnione ankiety</h2>
+                <div class="container_obie">
+                    <div class="container_wy">
+                        <h3>Wypełnione</h3>
+                        <table id="tb_wypelnione_ankiety" class="tabela">
+                        </table>
+                    </div>
+                    <div class="container_do">
+                        <h3>Do wypełnienia</h3>
+                        <table id="tb_do_wypelnienia_ankiety" class="tabela">
+                        </table>
+                    </div>
+                </div>
+            </div>
         </main>
-    </body>
-
-    <script>
+        <script>
         var table = document.getElementById('tb_moje_ankiety');
 	    //var tab2 = document.getElementById('tb_wydatki');
 		table.innerHTML = "";
@@ -187,4 +194,7 @@
             window.location.href = "podaj_token.php?nr=" + a[1];
         }
     </script>
+    </body>
+
+    
 </html>
