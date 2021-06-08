@@ -20,4 +20,4 @@ Aplikacje webowa umożliwiająca tworzenie i udostępnianie ankiet wśród zarej
 - Zapewnienie anonimowości wypełniających
 - Weryfikacja swoich odpowiedzi
 ## Zrzuty ekranu
-![Alt text](/screenshots/test.png?raw=true "Optional Title")
+![Alt text](/screenshots/test.png "Optional Title")
