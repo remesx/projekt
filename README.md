@@ -23,7 +23,9 @@ Aplikacje webowa umożliwiająca tworzenie i udostępnianie ankiet wśród zarej
 ![Alt text](/screenshots/test.JPG "Optional Title")
 #
 ![Alt text](/screenshots/2.JPG "Optional Title")
+ <br />
 ![Alt text](/screenshots/3.JPG "Optional Title")
+
 ![Alt text](/screenshots/4.JPG "Optional Title")
 ![Alt text](/screenshots/5.JPG "Optional Title")
 ![Alt text](/screenshots/6.JPG "Optional Title")
