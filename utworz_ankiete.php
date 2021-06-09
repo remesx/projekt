@@ -32,6 +32,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <header>
@@ -49,13 +50,14 @@
         <main>
         <div class="buttons-container">
             <button id="button" onclick="dodajPytanie()" class="buttons">Dodaj pytanie</button>
-            <input type="submit" form="survey-form" value="Dodaj ankiete" class="buttons"/>
+            <button id="dodaj" class="buttons" onclick="wyslij()"> Dodaj ankiete </button>
         </div>
-        <form method="POST" id="survey-form" action="wybor_uzytkownikow.php" class="form-utworz">
-            <div class="form-uzytkownicy">
+        <form method="POST" name="ankietaForm" id="survey-form" action="wybor_uzytkownikow.php" class="form-utworz">
+            <div class="form-uzytkownicy required" >
                 <h3>Wybierz użytkowników którym chcesz udostępnić ankietę:</h3>
+        
         <?php   
-    
+
             $section = "SELECT email FROM uzytkownicy";
             $result = $conn->query($section);
 
@@ -84,9 +86,7 @@
      
         
 
-        
-    </body>
-    <script type='text/javascript'>
+        <script>
     var nr_pytania = 2;
     function dodajPytanie(){
         var formularz = document.getElementById("form-pytania");
@@ -107,7 +107,26 @@
         formularz.appendChild(document.createElement("br"));
         nr_pytania++;
     }
+    function wyslij(){
+        var formValid = document.forms["survey-form"].checkValidity();
+        console.log(formValid);
+        
+        if($('div.form-uzytkownicy.required :checkbox:checked').length > 0 & formValid){
+            document.ankietaForm.submit();
+        }
+        else if(!formValid){
+            alert("Wszystkie pola na temat ankiety są wymagane");
+            console.log("niezaznaczone");
+        }
+        else
+        {
+            alert("Wybierz co najmniej jednego użytkownika");
+        }
+        
+    }
 
     
     </script>
+    </body>
+  
 </html>
