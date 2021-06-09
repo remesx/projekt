@@ -1,4 +1,3 @@
-# projekt
 # Aplikacja webowa umożliwiająca anonimowe głosowanie 
 
 Aplikacje webowa umożliwiająca tworzenie i udostępnianie ankiet wśród zarejestrowanych użytkowników, zapewniając anonimowość wypełniającym.
