@@ -37,7 +37,7 @@ Aplikacje webowa umożliwiająca tworzenie i udostępnianie ankiet wśród zarej
 [Link](http://dokumentacja.ct8.pl/files.html) do dokumentacji projektu
 
 ## Autorzy
-Kamil Wilk
-Kamil Witek
+- Kamil Wilk
+- Kamil Witek
 
 
