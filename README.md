@@ -32,3 +32,12 @@ Aplikacje webowa umożliwiająca tworzenie i udostępnianie ankiet wśród zarej
 ![Alt text](/screenshots/6.JPG "Optional Title")
 
 ![Alt text](/screenshots/7.JPG "Optional Title")
+
+## Dokumentacja
+[google.com]test
+
+## Autorzy
+Kamil Wilk
+Kamil Witek
+
+
